@@ -24,6 +24,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Public Route
 app.use(express.static(path.join(__dirname, "public")));
 
+app.get("/", (req, res) => {
+    res.status(200).render("login", { pageTitle: "Inventory Login" });
+});
+
 // 404 Route
 app.use((req, res) => {
     res.status(404).render("404", { pageTitle: "404: Page Not Found" });
