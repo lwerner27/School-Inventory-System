@@ -1,14 +1,14 @@
 // Imports
 const path = require("path");
 const bodyParser = require("body-parser");
-const express  =  require("express")
+const express = require("express");
 const hbs = require("express-handlebars");
 
 // Variables
-const PORT  =  process.env.PORT || 8080
+const PORT = process.env.PORT || 8080;
 
 // Express app setup
-const app =  express()
+const app = express();
 
 // Handlebars configuration
 app.engine(
@@ -30,5 +30,5 @@ app.use((req, res) => {
 });
 
 app.listen(PORT, () => {
-    console.log("The server is listening on port: " + PORT)
-})
+    console.log("The server is listening on port: " + PORT);
+});
