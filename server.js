@@ -2,6 +2,7 @@
 const path = require("path");
 const bodyParser = require("body-parser");
 const express = require("express");
+const router = require("./routes/router");
 const hbs = require("express-handlebars");
 
 // Variables
@@ -24,12 +25,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Public Route
 app.use(express.static(path.join(__dirname, "public")));
 
-app.get("/", (req, res) => {
-    res.status(200).render("login", {
-        pageTitle: "Inventory Login",
-        loginJs: true,
-    });
-});
+// Main router
+app.use("/", router);
 
 // 404 Route
 app.use((req, res) => {
