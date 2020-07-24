@@ -33,7 +33,7 @@ function attemptCreation(newUser) {
     }
 
     fetch("/account/create/", {
-        method: "POST", // or 'PUT'
+        method: "POST",
         headers: {
             "Content-Type": "application/json",
         },
