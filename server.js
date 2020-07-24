@@ -22,6 +22,7 @@ app.set("views", "views");
 
 // Body Parser Setup
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 // Public Route
 app.use(express.static(path.join(__dirname, "public")));
@@ -37,7 +38,7 @@ app.use((req, res) => {
 // Connect to the Mongo DB
 mongoose.connect(
     process.env.MONGODB_URI || "mongodb://localhost:27017/SchoolInventory",
-    { useNewUrlParser: true }
+    { useNewUrlParser: true, useUnifiedTopology: true }
 );
 
 app.listen(PORT, () => {
