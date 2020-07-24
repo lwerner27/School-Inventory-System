@@ -32,7 +32,6 @@ function attemptCreation(newUser) {
         return;
     }
 
-    console.log(newUser);
     fetch("/account/create/", {
         method: "POST", // or 'PUT'
         headers: {
@@ -42,7 +41,14 @@ function attemptCreation(newUser) {
     })
         .then((response) => response.json())
         .then((data) => {
-            console.log(data);
+            if (data.statusCode === 409) {
+                alert(data.msg);
+            } else if (data.statusCode === 500) {
+                alert(data.msg);
+            } else {
+                alert(data.msg);
+                window.location.replace("/");
+            }
         })
         .catch((error) => {
             console.error("Error:", error);

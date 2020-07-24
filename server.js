@@ -38,7 +38,7 @@ app.use((req, res) => {
 // Connect to the Mongo DB
 mongoose.connect(
     process.env.MONGODB_URI || "mongodb://localhost:27017/SchoolInventory",
-    { useNewUrlParser: true, useUnifiedTopology: true }
+    { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true }
 );
 
 app.listen(PORT, () => {
