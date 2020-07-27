@@ -61,8 +61,8 @@ router.post("/create", (req, res) => {
         return;
       }
 
-      res.status(200).send({
-        statusCode: 200,
+      res.status(201).send({
+        statusCode: 201,
         msg: "Your account has been created.",
       });
     });

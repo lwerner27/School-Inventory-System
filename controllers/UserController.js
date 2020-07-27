@@ -15,7 +15,7 @@ module.exports = {
         user.comparePassword(req.body.password, user.hash, (err, isMatch) => {
           if (isMatch && !err) {
             res
-              .status(201)
+              .status(200)
               .send({ msg: "Your have been successfully logged in." });
           } else {
             if (err) console.log(err);
