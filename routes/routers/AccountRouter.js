@@ -9,7 +9,7 @@ const router = express.Router();
 
 // Serves the registration page.
 router.get("/create", (req, res) => {
-  res.status(200).render("create", {
+  res.status(201).render("create", {
     pageTitle: "Create Account",
     createJs: true,
   });
