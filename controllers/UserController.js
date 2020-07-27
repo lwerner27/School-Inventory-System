@@ -12,13 +12,16 @@ module.exports = {
           msg: "Authentication failed. User not found.",
         });
       } else {
-        console.log("Hello world.");
         user.comparePassword(req.body.password, user.hash, (err, isMatch) => {
           if (isMatch && !err) {
-            console.log("Passwords match.");
+            res
+              .status(201)
+              .send({ msg: "Your have been successfully logged in." });
           } else {
             if (err) console.log(err);
-            console.log("Passwords do not match.");
+            res
+              .status(401)
+              .send({ msg: "Username or password was incorrect." });
           }
         });
       }

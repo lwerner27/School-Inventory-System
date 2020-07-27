@@ -17,7 +17,7 @@ router.get("/create", (req, res) => {
 
 // Post route for logins
 router.post("/login", (req, res) => {
-  db.User.findUserByUsername(req, res);
+  db.User.AttemptLogin(req, res);
 });
 
 // Handles user accont creation information.
