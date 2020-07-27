@@ -1,6 +1,7 @@
 const express = require("express");
 const bcrypt = require("bcrypt");
 const User = require("../../models/User");
+const db = require("../../controllers");
 
 const saltRounds = 10;
 
@@ -16,9 +17,7 @@ router.get("/create", (req, res) => {
 
 // Post route for logins
 router.post("/login", (req, res) => {
-  console.log(req.body.username, req.body.password);
-
-  res.status(200).send({ msg: "Your credentials have been received." });
+  db.User.findUserByUsername(req, res);
 });
 
 // Handles user accont creation information.

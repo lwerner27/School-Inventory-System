@@ -1,16 +1,29 @@
 $("document").ready(() => {
-    $("#login-submit").on("click", (event) => {
-        event.preventDefault();
+  $("#login-submit").on("click", (event) => {
+    event.preventDefault();
 
-        let user = getUserInfo();
+    let user = getUserInfo();
 
-        console.log(user.username, user.password);
-    });
+    fetch("/account/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(user),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  });
 });
 
 function getUserInfo() {
-    return {
-        username: $("#username").val(),
-        password: $("#password").val(),
-    };
+  return {
+    username: $("#username").val(),
+    password: $("#password").val(),
+  };
 }
