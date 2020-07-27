@@ -6,6 +6,7 @@ const saltRounds = 10;
 
 const router = express.Router();
 
+// Serves the registration page.
 router.get("/create", (req, res) => {
   res.status(200).render("create", {
     pageTitle: "Create Account",
@@ -13,12 +14,14 @@ router.get("/create", (req, res) => {
   });
 });
 
+// Post route for logins
 router.post("/login", (req, res) => {
   console.log(req.body.username, req.body.password);
 
   res.status(200).send({ msg: "Your credentials have been received." });
 });
 
+// Handles user accont creation information.
 router.post("/create", (req, res) => {
   let { firstName, lastName, username, password, location } = req.body;
 
