@@ -2,7 +2,9 @@ const router = require("express").Router()
 
 
 router.get("/", (req, res) => {
-    res.send("Welcome")
+    res.render("index", {
+        pageTitle: "HPS Inventory"
+    })
 })
 
 router.use("/accounts", require("./Users"))
