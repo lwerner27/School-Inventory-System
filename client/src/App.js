@@ -1,15 +1,16 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { Switch, Route, Link } from 'react-router-dom';
 
 import Home from './pages/Home';
 import Register from './pages/Register';
+import Dashboard from './pages/Dashboard';
 
 function App() {
     return (
-        <Router>
-            <nav class='navbar navbar-expand-lg navbar-light bg-light'>
-                <div class='container'>
-                    <Link class='navbar-brand' to='/'>
+        <div className='app'>
+            <nav className='navbar navbar-expand-lg navbar-light bg-light'>
+                <div className='container'>
+                    <Link className='navbar-brand' to='/'>
                         HPS Inventory
                     </Link>
                 </div>
@@ -18,12 +19,15 @@ function App() {
                 <Route path='/accounts/register'>
                     <Register />
                 </Route>
+                <Route path='/dashboard'>
+                    <Dashboard />
+                </Route>
                 {/* This must be the final Route */}
                 <Route path='/'>
                     <Home />
                 </Route>
             </Switch>
-        </Router>
+        </div>
     );
 }
 
